@@ -24,3 +24,8 @@ class Town:
 @bp.route('/')
 def index():
     return render_template('town/index.jinja', towns=[Town(None), Town(None)])
+
+@bp.route('/create')
+def create():
+    print("Generating new town")
+    return redirect(url_for('town.index'))
