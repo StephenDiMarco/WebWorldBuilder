@@ -1,2 +1,3 @@
 *.pyc
 instance/*
+web_world_builder/database.db
