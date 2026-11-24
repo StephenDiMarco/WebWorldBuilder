@@ -4,7 +4,8 @@ version = "1.0.0"
 description = "An application for world building towns."
 dependencies = [
     "flask",
-    "sqlalchemy"
+    "sqlalchemy",
+    "font-awesome-flask"
 ]
 
 [build-system]

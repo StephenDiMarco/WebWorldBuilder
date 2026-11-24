@@ -1,9 +1,12 @@
-from web_world_builder.sqlite_db_manager import init_db, db_session
+from flask_font_awesome import FontAwesome
 from flask import Flask
 import os
+from web_world_builder.sqlite_db_manager import init_db, db_session
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
+    font_awesome = FontAwesome()
+    font_awesome.init_app(app)
     app.config.from_mapping(
         SECRET_KEY='dev',
     )
