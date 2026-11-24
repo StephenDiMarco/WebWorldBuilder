@@ -15,6 +15,24 @@ def index():
 @bp.route('/create')
 def create():
     print("Generating new town")
-    db_session.add(Town())
+    town = Town()
+    town.randomize()
+    db_session.add(town)
     db_session.commit()
+    return redirect(url_for('generator.index'))
+
+@bp.route('/<int:id>/edit', methods=('GET',))
+def edit(id):
+    print("Town editing to be added")
+    return redirect(url_for('generator.index'))
+
+@bp.route('/<int:id>/delete', methods=('GET',))
+def delete(id):
+    town = Town.query.get(id)
+    if town is None:
+        flash("Town does not exist.")
+    else:
+        db_session.delete(town)
+        db_session.commit()
+
     return redirect(url_for('generator.index'))
