@@ -2,6 +2,13 @@ from json.decoder import JSONDecodeError
 import random
 import json
 import os
+import re
+
+def random_occurance_boolean():
+    return random_occurance(0.5)
+
+def random_occurance(probability):
+    return probability > random.uniform(0, 1)
 
 def capitalize_sentences(text):
     return ". ".join([s[0].upper() + s[1:] if s else "" for s in text.split(". ")])
@@ -32,3 +39,6 @@ def load_json(abs_file_path):
 
 def select_random_list_value(list_to_select_from):
     return random.choice(list_to_select_from)
+
+def name_is_possesive(name):
+    return bool(re.search(r"\b\w+'s?\b", name))
