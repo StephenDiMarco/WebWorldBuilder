@@ -21,12 +21,17 @@ def create():
     db_session.commit()
     return redirect(url_for('generator.index'))
 
-@bp.route('/<int:id>/edit', methods=('GET',))
+@bp.route('/<int:id>/summary')
+def summary(id):
+    print("Town editing to be added")
+    return render_template('town/summary.jinja', town=Town.query.get(id))
+
+@bp.route('/<int:id>/edit', methods=(HTTPMethod.GET, HTTPMethod.POST))
 def edit(id):
     print("Town editing to be added")
     return redirect(url_for('generator.index'))
 
-@bp.route('/<int:id>/delete', methods=('GET',))
+@bp.route('/<int:id>/delete')
 def delete(id):
     town = Town.query.get(id)
     if town is None:

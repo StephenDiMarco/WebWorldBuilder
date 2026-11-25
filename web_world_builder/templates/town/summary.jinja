@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+
+{% block header %}
+  <h1>{% block title %} {{ town.name }} {% endblock %}</h1>
+  <a class="action" href="{{ url_for('generator.edit', id=town['id']) }}">{{font_awesome.render_icon("fa-solid fa-wrench")}}</a>
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header class="icon-group">
+            <h1>Geography</h1>
+        </header>
+        <p class="body">{{ town.geography }}</p>
+    </article>
+{% endblock %}

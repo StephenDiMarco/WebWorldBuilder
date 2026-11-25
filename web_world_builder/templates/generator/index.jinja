@@ -9,7 +9,12 @@
   {% for town in towns %}
     <article>
        <header class="icon-group">
-          <h1>{{ town['name'] }}</h1>
+          <h1>
+          <a class="action" 
+            href="{{ url_for('generator.summary', id=town['id']) }}">
+            {{ town['name'] }}
+          </a>
+          </h1>
           <a class="action" 
             href="{{ url_for('generator.edit', id=town['id']) }}">
             {{font_awesome.render_icon("fa-solid fa-wrench")}}

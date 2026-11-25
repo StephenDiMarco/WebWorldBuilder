@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 {{ font_awesome.load_js() }}
 <nav>
-  <h1>World Builder</h1>
+  <h1>
+    <a class="action" href="{{ url_for('generator.index') }}">World Builder</a>
+  </h1>
 </nav>
 <section class="content">
   <header>

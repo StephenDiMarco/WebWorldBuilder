@@ -18,4 +18,5 @@ def init_db():
     # you will have to import them first before calling init_db()
     import web_world_builder.models.town
     import web_world_builder.models.geography
+    import web_world_builder.models.water_feature
     Base.metadata.create_all(bind=engine)
